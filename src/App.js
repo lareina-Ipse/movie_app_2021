@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from "react";
+
+function Food({name, picture}) {
+
+  return <div>
+    <h2>I like {name}</h2>
+    <img src={picture} />
+  </div>
+}
+
+const foodILike = [
+  {
+    name: "Kimchi",
+    image: "http://aeriskitchen.com/wp-content/uploads/2018/09/moms_best_kimchi_01-.jpg"
+  },
+  {
+    name: "Bibimbap",
+    image: "http://aeriskitchen.com/wp-content/uploads/2019/02/Stone_Bowl_Bibimbap_00-1-1.jpg"
+  }
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {foodILike.map(dish => <Food name={dish.name} picture={dish.image}/>)}
     </div>
   );
 }
